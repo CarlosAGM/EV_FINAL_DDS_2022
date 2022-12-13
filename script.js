@@ -282,7 +282,7 @@ aleatorioJugador = () =>{
           
           //Estas condicionales nos sirve para distinguir si nuestro usuario obtuvo tenar, cuaterna, quina y el loto.
           if(cont < 3){
-            nomJugadas.innerText = `Mala suerte ${inputUsuario} 😔, la tirada no reune los requisitos para ganar.`
+            nomJugadas.innerText = `Mala suerte ${inputUsuario} 😔, la tirada no reúne los requisitos para ganar.`
             divFelicitaciones.appendChild(nomJugadas)
             console.log("entro en menos 3")
           }
