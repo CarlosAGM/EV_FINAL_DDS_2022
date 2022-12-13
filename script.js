@@ -185,9 +185,9 @@ instrucciones = () =>{
 aleatorioPolla = () =>{
     inputs = document.querySelectorAll('.inputPolla')
       for(let i=0; i <= 5; i++ ){
-        var lanzar = 45
-        while ((lanzar >= 45)||((lanzar <= 1))){
-          lanzar = Math.round(Math.random()*45)
+        var lanzar = 42
+        while ((lanzar >= 42)||((lanzar <= 1))){
+          lanzar = Math.round(Math.random()*42)
         }
         inputs[i].value = lanzar
       }
@@ -231,9 +231,9 @@ aleatorioJugador = () =>{
     if (jugadas <= 6){
         //ciclo for que nos permite llenar con numeros aleatorios los inputs del usuario 
         for(let i=0; i <= 5; i++ ){
-            var lanzar = 45
-            while ((lanzar >= 45)||((lanzar <= 1))){
-            lanzar = Math.round(Math.random()*45)
+            var lanzar = 42
+            while ((lanzar >= 42)||((lanzar <= 1))){
+            lanzar = Math.round(Math.random()*42)
                 }
           inputs[i].value = lanzar
             }
