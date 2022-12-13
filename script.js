@@ -25,7 +25,7 @@ const saltoLinea = () =>{
 
 //Creación de un h1 para el titulo de la página más color y tipo de fuente
 const titulo1 = document.createElement('h1')
-titulo1.innerHTML = 'Polla Chilena de Beneficiencia'
+titulo1.innerHTML = '🍀 Polla Chilena de Beneficiencia 💵'
 titulo1.style.textAlign = 'center'
 titulo1.style.fontFamily = 'monospace'
 titulo1.style.color = '#0D4C92'
@@ -37,9 +37,18 @@ buttonInst.innerText = 'Instrucciones ⚠️'
 buttonInst.style.backgroundColor = '#FFFF00'
 buttonInst.style.border = '4px solid #FCE700'
 buttonInst.style.borderRadius = '4px'
-buttonInst.style.width = '100px'
+buttonInst.style.width = '140px'
 buttonInst.onclick = () => instrucciones()
 cajaCompleta.appendChild(buttonInst)
+
+let buttonPremios = document.createElement('button')
+buttonPremios.innerText = 'Premios 🏆'
+buttonPremios.style.backgroundColor = '#FF8D29'
+buttonPremios.style.border = '4px solid #FFCD38'
+buttonPremios.style.borderRadius = '4px'
+buttonPremios.style.width = '100px'
+buttonPremios.onclick = () => premios()
+cajaCompleta.appendChild(buttonPremios)
 saltoLinea()
 
 //Creación de texto y input del usuario más el botón
@@ -139,14 +148,34 @@ botonUser = () => {
   textoDinamicoUser = document.getElementById('nomJugadorEstatico')
   textoDinamicoUser.innerText = inputUsuario.value
 }
+//Función para premios
+premios = () =>{
+  alert(`"Premios 🏆"
+  "Premio Mayor el LOTO 🍀" 
+  Se obtiene acertando los 6 números del loto
+  Monto: $1.000.000 CLP
 
+  "Quina 🎖️"
+  Se obtiene acertando 5 números del loto
+  Monto: $700.000 CLP
+
+  "Cuterna 🏅"
+  Se obtiene acertando 4 números del loto
+  Monto: $400.000 CLP
+
+  "Terna 🥉"
+  Se obtiene acertando 3 números del loto
+  Monto: $200.000 CLP
+  `
+)
+}
 //Función para las Instrucciones
 instrucciones = () =>{
   alert(`"Bienvenido a polla Chilena"
   1.- Ingrese su nombre.
   2.- Click en botón "Polla" para generar números aleatorios a sortear.
   3.- Click en botón "Suerte" para generar sus números aleatorios.
-  4.- Usted cuenta con 6 intentos acumulables.
+  4.- Usted cuenta con 6 intentos.
   5.- Click "Jugar otra vez" para comenzar desde cero. OJO 👀 *El registro se elimina por completo.
   6.- Mucha Suerte 🍀`
 )
@@ -170,9 +199,9 @@ divJugadas.style.backgroundColor = '#FFF6BF'
 divJugadas.id = 'divJugadas'
 cajaCompleta.appendChild(divJugadas)
 
-//Inicialización de contadores
+//Inicialización de contador
 let jugadas = 0
-let cont = 0
+
 
 //Creación del div que contiene la felicitacón del usuario
 const divFelicitaciones = document.createElement('div')
@@ -194,6 +223,8 @@ aleatorioJugador = () =>{
     inputsPolla = document.querySelectorAll('.inputPolla')
     const nomJugadas = document.getElementById('textoEstatico')
     inputUsuario = document.getElementById('inputUser').value
+
+    let cont = 0
     //contador 
     jugadas++
     //condicional para no superar las 6 tiradas
@@ -250,32 +281,37 @@ aleatorioJugador = () =>{
           divJugadas.appendChild(numeros)
           
           //Estas condicionales nos sirve para distinguir si nuestro usuario obtuvo tenar, cuaterna, quina y el loto.
+          if(cont < 3){
+            nomJugadas.innerText = `Mala suerte ${inputUsuario} 😔, la tirada no reune los requisitos para ganar.`
+            divFelicitaciones.appendChild(nomJugadas)
+            console.log("entro en menos 3")
+          }
           if(cont == 3){
             nombreJugada = 'terna'
-            nomJugadas.innerText = `Felicitaciones! 🎊 ${inputUsuario} 🎉 haz realizado una ${nombreJugada} con ${jugadas} jugadas.`
+            nomJugadas.innerText = `Felicitaciones! 🎊 ${inputUsuario} 🎉 ganaste $200.000CLP💵 realizando una ${nombreJugada} en tu jugada N° ${jugadas} .`
             divFelicitaciones.appendChild(nomJugadas)
-            alert(`Felicitaciones haz realizado una ${nombreJugada} con ${jugadas} jugadas.`)
+            alert(`Felicitaciones haz realizado una ${nombreJugada} en tu jugada N° ${jugadas}.`)
           }
           if(cont == 4){
             
             nombreJugada = 'cuaterna'
-            nomJugadas.innerText = `Felicitaciones! 🎊 ${inputUsuario} 🎉 haz realizado una ${nombreJugada} con ${jugadas} jugadas.`
+            nomJugadas.innerText = `Felicitaciones! 🎊 ${inputUsuario} 🎉 ganaste $400.000CLP💵 realizando una ${nombreJugada} en tu jugada N° ${jugadas}.`
             divFelicitaciones.appendChild(nomJugadas)
-            alert(`Felicitaciones haz realizado una ${nombreJugada} con ${jugadas} jugadas.`)
+            alert(`Felicitaciones haz realizado una ${nombreJugada} en tu jugada N° ${jugadas}.`)
           }
           if(cont == 5){
             
             nombreJugada = 'quina'
-            nomJugadas.innerText = `Felicitaciones! 🎊 ${inputUsuario} 🎉 haz realizado una ${nombreJugada} con ${jugadas} jugadas.`
+            nomJugadas.innerText = `Felicitaciones! 🎊 ${inputUsuario} 🎉 ganaste $700.000CLP💵 realizando una ${nombreJugada} en tu jugada N° ${jugadas}.`
             divFelicitaciones.appendChild(nomJugadas)
-            alert(`Felicitaciones haz realizado una ${nombreJugada} con ${jugadas} jugadas.`)
+            alert(`Felicitaciones haz realizado una ${nombreJugada} en tu jugada N° ${jugadas}.`)
           }
           if(cont == 6){
             
             nombreJugada = 'LOTO!!!'
-            nomJugadas.innerText = `Felicitaciones! 🎊 ${inputUsuario} 🎉 haz realizado un ${nombreJugada} con ${jugadas} jugadas.Tienes mucha suerte 🍀.`
+            nomJugadas.innerText = `Felicitaciones! 🎊 ${inputUsuario} 🎉 ganaste $1.000.000CLP💵 realizando un ${nombreJugada} en tu jugada N° ${jugadas}. Tienes mucha suerte 🍀.`
             divFelicitaciones.appendChild(nomJugadas)
-            alert(`Felicitaciones haz realizado una ${nombreJugada} con ${jugadas} jugadas.`)
+            alert(`Felicitaciones haz realizado una ${nombreJugada} en tu jugada N° ${jugadas}.`)
           }
 
     
