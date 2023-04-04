@@ -4,6 +4,7 @@
 
 //Esto va a gitlab
 //Obtener el DOM del body html más color de fondo
+
 const body = document.body
 body.style.backgroundColor = '#C3F8FF'
 
